@@ -1,0 +1,9 @@
+{
+    "pathSubstitution": "1",
+
+    "type": "phpFiles",
+    "encoding": "UTF-8",
+    "subject": "{PATH}",
+    "textBody": "{PATH}",
+    "htmlBody": "{PATH}"
+}

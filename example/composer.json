@@ -1,0 +1,18 @@
+{
+    "minimum-stability": "alpha",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.zendframework.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "zendframework/zendframework": "2.0.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Mote": "../src/"
+        }
+    }
+}

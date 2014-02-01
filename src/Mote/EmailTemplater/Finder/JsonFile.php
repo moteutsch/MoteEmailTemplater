@@ -47,7 +47,7 @@ class JsonFile implements FinderInterface
         }
 
         $hasText = isset($data['textBody']);
-        $hasHtml = isset($data['textHtml']);
+        $hasHtml = isset($data['htmlBody']);
         if (!$hasText && !$hasHtml) {
             return null;
         }

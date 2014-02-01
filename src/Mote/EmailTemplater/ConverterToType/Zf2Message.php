@@ -31,8 +31,8 @@ class Zf2Message implements ConverterToTypeInterface
         }
 
         $message = new MailMessage();
-        $message->setSubject($subject)
-            ->setEncoding($email->getEncoding())
+        $message->setEncoding($email->getEncoding())
+            ->setSubject($email->getSubject())
             ->setBody($body);
         $message->getHeaders()
             ->get('content-type')->setType('multipart/alternative');

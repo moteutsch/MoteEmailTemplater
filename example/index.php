@@ -25,5 +25,8 @@ $email = $templater->fromTemplate(
         'age' => '37',
     )
 );
+
+echo '<pre>';
 var_dump($email);
 var_dump($email->convert());
+echo '</pre>';

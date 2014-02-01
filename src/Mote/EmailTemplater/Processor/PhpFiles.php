@@ -24,8 +24,8 @@ class PhpFiles implements ProcessorInterface
         return new \Mote\EmailTemplater\Email(
             $template->getEncoding(),
             $template->getSubject() === $path ? $this->parsePhpFile('subject', $path, $parameterMap) : $template->getSubject(),
-            $template->hasHtmlBody() ? $this->parsePhpFile('htmlBody', $path, $parameterMap) : null,
-            $template->hasTextBody() ? $this->parsePhpFile('textBody', $path, $parameterMap) : null
+            $template->hasTextBody() ? $this->parsePhpFile('textBody', $path, $parameterMap) : null,
+            $template->hasHtmlBody() ? $this->parsePhpFile('htmlBody', $path, $parameterMap) : null
         );
     }
 

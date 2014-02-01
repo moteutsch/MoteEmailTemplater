@@ -76,13 +76,13 @@ class Email
     /** @return string */
     public function getHtmlBody()
     {
-        return $this->encoding;
+        return $this->htmlBody;
     }
 
     /** @return string */
     public function getTextBody()
     {
-        return $this->encoding;
+        return $this->textBody;
     }
 
     /** @return bool */

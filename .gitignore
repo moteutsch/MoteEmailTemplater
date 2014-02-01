@@ -1,2 +1,2 @@
-vendor/*
-vendor/composer.phar
+src/vendor/*
+example/composer.phar

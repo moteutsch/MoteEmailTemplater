@@ -58,7 +58,6 @@ class PhpFiles implements ProcessorInterface
      */
     public function canProcess(\Mote\EmailTemplater\Template $template)
     {
-        // TODO: type property
         return $template->getType() === 'phpFiles';
     }
 }

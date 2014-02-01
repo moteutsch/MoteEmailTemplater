@@ -3,7 +3,7 @@
 namespace Mote\EmailTemplater;
 
 /**
- * Immutable representation of a parsed email
+ * Immutable (except for "setConverter") representation of a parsed email
  */
 class Email
 {
@@ -28,7 +28,7 @@ class Email
      * @param string|null $textBody
      * @param string|null $htmlBody
      */
-    public function __construct( $encoding, $subject, $textBody, $htmlBody)
+    public function __construct($encoding, $subject, $textBody, $htmlBody)
     {
         $this->encoding   = $encoding;
         $this->subject    = $subject;

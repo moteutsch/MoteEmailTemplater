@@ -13,10 +13,14 @@ class Templater
     /** @var ProcessorInterface */
     private $processor;
 
-    public function __construct(FinderInterface $finder, ProcessorInterface $processor)
+    /** @var EmailConverter */
+    private $converter;
+
+    public function __construct(FinderInterface $finder, ProcessorInterface $processor, EmailConverter $converter)
     {
         $this->finder = $finder;
         $this->processor = $processor;
+        $this->converter = $converter;
     }
 
     /**
@@ -35,8 +39,7 @@ class Templater
         if ($template === null) {
             throw new TemplateNotFoundException($templateName);
         }
-        return $this->processor->process($template);
-        // TODO: CanProcess method and can't process exception
-        //if ignoring canProcess() (as we'll do in composite)
+        return $this->processor->process($template)
+            ->setConverter($this->converter);
     }
 }

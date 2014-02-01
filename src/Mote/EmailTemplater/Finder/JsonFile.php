@@ -31,10 +31,7 @@ class JsonFile implements FinderInterface
         } catch (\InvalidArgumentException $e) {
             return null;
         }
-        if (!is_readable($msgFile)) {
-            return null;
-        }
-        $jsonString = file_get_contents($msgFile);
+        $jsonString = @file_get_contents($msgFile);
         if ($jsonString === false) {
             return null;
         }

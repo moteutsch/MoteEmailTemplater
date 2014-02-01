@@ -2,6 +2,8 @@
 
 namespace Mote\EmailTemplater\Processor;
 
+use Mote\EmailTemplater\Template;
+
 class Composite implements ProcessorInterface
 {
     /** @var ProcessorInterface[] */
@@ -15,7 +17,7 @@ class Composite implements ProcessorInterface
         $this->processors = $processors;
     }
 
-    public function process(Template $template, array $parameterMap)
+    public function process(\Mote\EmailTemplater\Template$template, array $parameterMap)
     {
         foreach ($this->processors as $processor) {
             if ($processor->canProcess($template)) {

@@ -14,7 +14,7 @@ interface ProcessorInterface
      * @throws CannotProcessTemplateException Will be thrown if {@see
      * canProcess} returns false
      */
-    public function process(Template $template, array $parameterMap);
+    public function process(\Mote\EmailTemplater\Template $template, array $parameterMap);
 
     /**
      * @param \Mote\EmailTemplater\Template $template

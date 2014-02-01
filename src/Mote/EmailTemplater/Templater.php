@@ -39,7 +39,7 @@ class Templater
         if ($template === null) {
             throw new TemplateNotFoundException($templateName);
         }
-        return $this->processor->process($template)
+        return $this->processor->process($template, $params)
             ->setConverter($this->converter);
     }
 }

@@ -2,9 +2,11 @@
 
 namespace Mote\EmailTemplater\Finder;
 
+use Mote\EmailTemplater\Template;
+
 class JsonFile implements FinderInterface
 {
-    private static $REQUIRED_KEYS = array('encoding', 'subject');
+    private static $REQUIRED_KEYS = array('type', 'encoding', 'subject');
 
     /** @var string */
     private $templateDirectory;
@@ -36,7 +38,7 @@ class JsonFile implements FinderInterface
         if ($jsonString === false) {
             return null;
         }
-        $data = json_decode($jsonString);
+        $data = json_decode($jsonString, true);
         if ($data === null) {
             return null;
         }
@@ -51,7 +53,9 @@ class JsonFile implements FinderInterface
         }
         // Document this path substition
         $data = $this->pathSubstitution($data, dirname($msgFile));
-        return new Template($data['encoding'], $data['subject'], $hasText ? $data['textBody'] : null, $hasHtml ? $data['htmlBody'] : null);
+        return new Template($data['type'], $data['encoding'], $data['subject'],
+            $hasText ? $data['textBody'] : null,
+            $hasHtml ? $data['htmlBody'] : null);
     }
 
     private function pathSubstitution(array $data, $path)
@@ -59,7 +63,7 @@ class JsonFile implements FinderInterface
         if (!isset($data['pathSubstitution'])) {
             return $data;
         }
-        return array_map(function ($value) {
+        return array_map(function ($value) use ($path) {
             return str_replace('{PATH}', $path, $value);
         }, $data);
     }
@@ -72,7 +76,7 @@ class JsonFile implements FinderInterface
 
     private function templatePath($name)
     {
-        $file = realpath(sprintf('%s/%s/message.json', $this->templateDirectory, $templateName));
+        $file = realpath(sprintf('%s/%s/message.json', $this->templateDirectory, $name));
         if (strpos($file, $this->templateDirectory) !== 0) {
             throw new \InvalidArgumentException();
         }

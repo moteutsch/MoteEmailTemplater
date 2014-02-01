@@ -14,18 +14,18 @@ class PhpFiles implements ProcessorInterface
      * @throws CannotProcessTemplateException Will be thrown if {@see
      * canProcess} returns false
      */
-    public function process(Template $template, array $parameterMap)
+    public function process(\Mote\EmailTemplater\Template $template, array $parameterMap)
     {
-        if (!$this->canProcess()) {
+        if (!$this->canProcess($template)) {
             throw new CannotProcessTemplateException();
         }
         $path = $template->hasHtmlBody() ? $template->getHtmlBody() : $template->getTextBody();
         // TODO: Maybe return EmailWithoutConverter here and Email in Templater? That way it will reflect the actual state of the convert() method
         return new \Mote\EmailTemplater\Email(
             $template->getEncoding(),
-            $template->getSubject() === $path ? $this->parsePhpFile('subject', $path) : $template->getSubject(),
-            $template->hasHtmlBody() ? $this->parsePhpFile('htmlBody', $path) : null,
-            $template->hasTextBody() ? $this->parsePhpFile('textBody', $path) : null
+            $template->getSubject() === $path ? $this->parsePhpFile('subject', $path, $parameterMap) : $template->getSubject(),
+            $template->hasHtmlBody() ? $this->parsePhpFile('htmlBody', $path, $parameterMap) : null,
+            $template->hasTextBody() ? $this->parsePhpFile('textBody', $path, $parameterMap) : null
         );
     }
 

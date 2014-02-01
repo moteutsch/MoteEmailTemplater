@@ -9,6 +9,6 @@ class TemplateNotFoundException extends \Exception
      */
     public function __construct($templateName)
     {
-        parent::__construct(sprinf('Template "%s" not found', $templateName));
+        parent::__construct(sprintf('Template "%s" not found', $templateName));
     }
 }

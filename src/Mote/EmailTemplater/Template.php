@@ -8,6 +8,9 @@ namespace Mote\EmailTemplater;
 class Template
 {
     /** @var string */
+    private $type;
+
+    /** @var string */
     private $encoding;
 
     /** @var string */
@@ -20,17 +23,25 @@ class Template
     private $htmlBody;
 
     /**
+     * @param string $type
      * @param string $encoding
      * @param string $subject
      * @param string|null $textBody
      * @param string|null $htmlBody
      */
-    public function __construct($encoding, $subject, $textBody, $htmlBody)
+    public function __construct($type, $encoding, $subject, $textBody, $htmlBody)
     {
+        $this->type       = $type;
         $this->encoding   = $encoding;
         $this->subject    = $subject;
         $this->textBody   = $textBody;
         $this->htmlBody   = $htmlBody;
+    }
+
+    /** @return string */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /** @return string */
@@ -48,13 +59,13 @@ class Template
     /** @return string */
     public function getHtmlBody()
     {
-        return $this->encoding;
+        return $this->htmlBody;
     }
 
     /** @return string */
     public function getTextBody()
     {
-        return $this->encoding;
+        return $this->textBody;
     }
 
     /** @return bool */

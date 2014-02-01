@@ -1,15 +1,38 @@
-# Setup
+# PHP library for creating emails from templates
 
-Install composer:
+Entirely configurable. Can easily be made to work with any email-sending library.
 
-    curl -sS https://getcomposer.org/installer | php
+## Usage for ZF2:
 
-And update:
+    use Mote\EmailTemplater as Et;
 
-    php composer.phar update
+    $templater = new Et\Templater(...);
+    $transport = new \Zend\Mail\Transport\Sendmail();
+    try {
+        $zendMessage = $templater->fromTemplate(
+            'myEmailTemplate',
+            array(
+                'templateParam1' => 'Something...',
+                'templateParam2' => 'Something else...',
+            )
+        )->convert('zf2'); // Or just ->convert() if "zf2" is set in constructor as default
+        $zendMessage->setFrom('admin@localhost')
+            ->setTo('someone@somewhere.com');
+        $transport->send($zendMessage);
+    } catch (Et\TemplateNotFoundException $e) {
+        echo 'Could not find template';
+    } catch (Et\Processor\MissingParameterException $e) {
+        echo 'Could not find missing parameter';
+    } catch (Et\Processor\InvalidTemplateException $e) {
+        echo 'The template found was invalid';
+    } catch (Et\Processor\CannotProcessTemplateException $e) {
+        echo 'No one can parse the found template into an email.';
+    }
 
-To run (you must be in this directory):
+For full example, see `example/` folder
 
-    php -S localhost:9000
+## TO-DO
 
-And open your web browser to `http://localhost:9000`.
++ Have exceptions inherit from a catch-all (match as per ZF2 standards)
++ (Separate) ZF2 module built upon this
++ Another processor (markdown, smarty, etc.)

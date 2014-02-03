@@ -5,6 +5,8 @@ Entirely configurable. Can easily be made to work with any email-sending library
 ## Usage for ZF2:
 
 ```
+<?php
+
 use Mote\EmailTemplater as Et;
 
 $templater = new Et\Templater(...);

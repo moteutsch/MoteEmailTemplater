@@ -1,2 +1,3 @@
 example/vendor/
 example/composer.phar
+example/composer.lock

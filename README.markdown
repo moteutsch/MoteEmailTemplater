@@ -4,7 +4,7 @@ Entirely configurable. Can easily be made to work with any email-sending library
 
 ## Usage for ZF2:
 
-```
+```php
 <?php
 
 use Mote\EmailTemplater as Et;

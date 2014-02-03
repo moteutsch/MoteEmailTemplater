@@ -1,5 +1,5 @@
 {
-    "name": "mote\email-templater",
+    "name": "mote/email-templater",
     "description": "A PHP email templating library, flexible enough to work with most libraries and frameworks",
     "homepage": "https://github.com/moteutsch/MoteEmailTemplater",
     "type": "library",

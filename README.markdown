@@ -2,6 +2,8 @@
 
 Entirely configurable. Can easily be made to work with any email-sending library.
 
+NOTE: This library is still in development, and not fully tested. Should work fine, but you should test it yourself (and submit bug reports or fixes!).
+
 ## Usage for ZF2:
 
 ```php

@@ -4,16 +4,6 @@ namespace Mote\EmailTemplater\Processor;
 
 class PhpFiles implements ProcessorInterface
 {
-    /**
-     * @param \Mote\EmailTemplater\Template $template
-     * @param array $parameterMap
-     * @return \Mote\EmailTemplater\Email
-     *
-     * @throws MissingParameterException
-     * @throws InvalidTemplateException
-     * @throws CannotProcessTemplateException Will be thrown if {@see
-     * canProcess} returns false
-     */
     public function process(\Mote\EmailTemplater\Template $template, array $parameterMap)
     {
         if (!$this->canProcess($template)) {

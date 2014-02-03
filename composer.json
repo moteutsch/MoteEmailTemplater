@@ -1,0 +1,23 @@
+{
+    "name": "mote\email-templater",
+    "description": "A PHP email templating library, flexible enough to work with most libraries and frameworks",
+    "homepage": "https://github.com/moteutsch/MoteEmailTemplater",
+    "type": "library",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Moshe Teutsch",
+            "email": "moteutsch@gmail.com"
+        }
+    ],
+    "suggest": {
+        "xamin/handlebars.php": "'dev-master' for Handlebars support"
+    },
+    "autoload": {
+        "psr-0": {
+            "Mote": "src/"
+        }
+    }
+}

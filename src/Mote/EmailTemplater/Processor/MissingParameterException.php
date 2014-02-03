@@ -2,6 +2,6 @@
 
 namespace Mote\EmailTemplater\Processor;
 
-class MissingParameterException extends \Exception
+class MissingParameterException extends ProcessingException
 {
 }

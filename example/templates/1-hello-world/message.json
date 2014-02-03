@@ -1,0 +1,8 @@
+{
+    "type": "handlebars",
+
+    "encoding": "UTF-8",
+    "subject": "Hello world, {{name}}!",
+    "textBody": "Hey {{name}},\n\nHere are the days of the week:{{#each days}} \"{{this}},\"{{/each}}--and that's all!",
+    "htmlBody": "<p>Hey {{name}},</p><p>Here are the days of the week:{{#each days}} \"{{this}},\"{{/each}}--and that's all!</p>"
+}

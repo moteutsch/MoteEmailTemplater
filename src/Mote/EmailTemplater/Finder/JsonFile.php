@@ -4,6 +4,26 @@ namespace Mote\EmailTemplater\Finder;
 
 use Mote\EmailTemplater\Template;
 
+/**
+ * Class for "finding" JSON formatted templates.
+ *
+ * It contains the extra feature of substituting "{PATH}" in all fields with the
+ * directory where the JSON template was found, on condition that there is a key
+ * "pathsubstitution" in the JSON template.
+ *
+ * <example>
+ * {
+ *     "pathSubstitution": "1",
+ *     "subject": "{PATH}",
+ *     // ...
+ * }
+ * </example>
+ *
+ * This is mainly used by the {@see \Mote\EmailTemplater\Processor\PhpFiles} processor.
+ *
+ * @todo Adding @include to fields to allow breaking up message content for longer
+ *       fields into separate files.
+ */
 class JsonFile implements FinderInterface
 {
     private static $REQUIRED_KEYS = array('type', 'encoding', 'subject');

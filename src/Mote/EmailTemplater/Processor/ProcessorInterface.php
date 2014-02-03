@@ -11,8 +11,8 @@ interface ProcessorInterface
      *
      * @throws MissingParameterException
      * @throws InvalidTemplateException
-     * @throws CannotProcessTemplateException Will be thrown if {@see
-     * canProcess} returns false
+     * @throws CannotProcessTemplateException Will be thrown if {@see canProcess} returns false
+     * @throws ProcessingException The other exceptions inherit form this one, but this may also be thrown
      */
     public function process(\Mote\EmailTemplater\Template $template, array $parameterMap);
 

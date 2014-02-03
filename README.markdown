@@ -22,12 +22,10 @@ try {
     $transport->send($zendMessage);
 } catch (Et\TemplateNotFoundException $e) {
     echo 'Could not find template';
-} catch (Et\Processor\MissingParameterException $e) {
-    echo 'Could not find missing parameter';
 } catch (Et\Processor\InvalidTemplateException $e) {
     echo 'The template found was invalid';
-} catch (Et\Processor\CannotProcessTemplateException $e) {
-    echo 'No one can parse the found template into an email.';
+} catch (Et\Processor\ProcessingException $e) {
+    echo 'Generic processing exception';
 }
 ```
 
@@ -35,6 +33,6 @@ For full example, see `example/` folder
 
 ## TO-DO
 
-+ Have exceptions inherit from a catch-all (match as per ZF2 standards)
++ Have (all) exceptions inherit from a catch-all (match as per ZF2 standards)
 + (Separate) ZF2 module built upon this
-+ Another processor (markdown, smarty, etc.)
++ "@include FILE_NAME" support in JSON to have fields in separate files

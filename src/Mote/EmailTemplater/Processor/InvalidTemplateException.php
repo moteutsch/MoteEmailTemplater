@@ -2,6 +2,6 @@
 
 namespace Mote\EmailTemplater\Processor;
 
-class InvalidTemplateException extends \Exception
+class InvalidTemplateException extends ProcessingException
 {
 }

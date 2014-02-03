@@ -12,6 +12,9 @@
             "email": "moteutsch@gmail.com"
         }
     ],
+    "require": {
+        "php": ">=5.3.0"
+    },
     "suggest": {
         "xamin/handlebars.php": "'dev-master' for Handlebars support"
     },

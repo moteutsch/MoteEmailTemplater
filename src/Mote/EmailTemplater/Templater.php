@@ -32,6 +32,7 @@ class Templater
      * @throws Processor\MissingParameterException
      * @throws Processor\InvalidTemplateException
      * @throws Processor\CannotProcessTemplateException
+     * @throws Processor\ProcessingException {@see \Mote\EmailTemplater\Processor\ProcessorInterface}
      */
     public function fromTemplate($templateName, array $params)
     {
